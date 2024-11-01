@@ -1,6 +1,9 @@
+//IMPORTA O MÓDULO PARA EXECUTAR COMANDOS BASH
 const { exec } = require("child_process");
+//IMPORTA A LIB DE DATA E HORA
 const moment = require("moment");
 
+//DEFINE UMA FUNÇÃO ANONIMA QUE RETORNA O COMANDO BASH
 const supervisorStatus = () =>
   exec("systemctl status WANsupervisor", (error, stdout, stderr) => {
     if (error || stderr) {
@@ -28,4 +31,5 @@ const supervisorStatus = () =>
     );
   });
 
+//EXPORTA A FUNÇÃO
 module.exports = { supervisorStatus };

@@ -1,6 +1,9 @@
+//IMPORTA O MÓDULO PARA EXECUTAR COMANDOS BASH
 const { exec } = require("child_process");
+//IMPORTA A LIB DE DATA E HORA
 const moment = require("moment");
 
+//DEFINE UMA FUNÇÃO ANONIMA QUE RETORNA O COMANDO BASH
 const ipTablesF = () =>
   exec("iptables -t raw -F", (error, stdout, stderr) => {
     if (error || stderr) {
@@ -11,6 +14,7 @@ const ipTablesF = () =>
     }
   });
 
+//DEFINE UMA FUNÇÃO ANONIMA QUE RETORNA O COMANDO BASH
 const ipTablesX = () =>
   exec("iptables -t raw -X", (error, stdout, stderr) => {
     if (error || stderr) {
@@ -21,6 +25,7 @@ const ipTablesX = () =>
     }
   });
 
+//DEFINE UMA FUNÇÃO ANONIMA QUE RETORNA O COMANDO BASH
 const showIpTables = () =>
   exec("iptables -t raw -L", (error, stdout, stderr) => {
     if (error || stderr) {
@@ -33,4 +38,5 @@ const showIpTables = () =>
     return;
   });
 
+//EXPORTA AS FUNÇÕES
 module.exports = { ipTablesF, ipTablesX, showIpTables };

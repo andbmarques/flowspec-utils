@@ -34,7 +34,7 @@ async function execBatch() {
     );
   } catch (error) {
     //Informa um erro via console
-    console.log(moment().format("lll") + " | WANGUARD | ERRO | ERRO AO LIMPAR ANÚNCIOS");
+    console.log(moment().format("lll") + " | WANGUARD | ERRO | ERRO AO LIMPAR ANÚNCIOS | " + error.message );
   }
 }
 
